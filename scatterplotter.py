@@ -13,6 +13,7 @@ def plotEverything():
     colours = ['skyblue', 'plum', 'yellowgreen', 'lightcoral', 'teal', 'orange', 'lightseagreen', 'hotpink']
     i, j = 0, 15
     while j <= 120:
+        # change to markerfacecolor[colours[i//15]] if want different colours
         plt.plot(data["Angle"][i:j], data["Neg_Mass"][i:j], 'o', markerfacecolor='black', markeredgecolor='black')
         i += 15
         j += 15
