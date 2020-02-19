@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+# outfile = open('avgdata.csv', 'w')
 
 w = 10
 h = 10
@@ -14,7 +15,7 @@ def plotEverything():
     i, j = 0, 15
     while j <= 120:
         # change to markerfacecolor[colours[i//15]] if want different colours
-        plt.plot(data["Angle"][i:j], data["Neg_Mass"][i:j], 'o', markerfacecolor='black', markeredgecolor='black')
+        plt.plot(data["Angle"][i:j], data["Neg_Mass"][i:j], 'o', markerfacecolor=colours[i//15], markeredgecolor='black')
         i += 15
         j += 15
     plt.title('Plot of My Raw Data')
@@ -22,4 +23,14 @@ def plotEverything():
     plt.ylabel('Mass Shown on Balance/-g')
     plt.show()
 
-plotEverything()
+# plotEverything()
+
+# outfile.close()
+
+def mean(L):
+    return sum(L) / len(L)
+
+angles = [point[0] for point in data]
+n_masses = [point[1] for point in data]
+
+print(angles)
