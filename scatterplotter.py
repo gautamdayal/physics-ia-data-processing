@@ -33,4 +33,22 @@ def mean(L):
 angles = [point[0] for point in data]
 n_masses = [point[1] for point in data]
 
-print(angles)
+i, j = 0, 15
+angles_ordered = []
+n_masses_ordered = []
+
+while j <= 120:
+    angles_ordered.append(angles[i:j])
+    n_masses_ordered.append(n_masses[i:j])
+    i += 15
+    j += 15
+
+for i in range(len(angles_ordered)):
+    angles_ordered[i] = mean(angles_ordered[i])
+    n_masses_ordered[i] = mean(n_masses_ordered[i])
+
+plt.plot(angles_ordered, n_masses_ordered, 'o')
+plt.title('Plot of Averaged Data')
+plt.xlabel('Angle of Attack/°')
+plt.ylabel('Mass Shown on Balance/-g')
+plt.show()
