@@ -44,8 +44,11 @@ while j <= 120:
     j += 15
 
 for i in range(len(angles_ordered)):
-    angles_ordered[i] = mean(angles_ordered[i])
-    n_masses_ordered[i] = mean(n_masses_ordered[i])
+    angles_ordered[i] = int(mean(angles_ordered[i]))
+    n_masses_ordered[i] = round(mean(n_masses_ordered[i]), 1)
+
+print(angles_ordered)
+print(n_masses_ordered)
 
 plt.plot(angles_ordered, n_masses_ordered, 'o')
 plt.title('Plot of Averaged Data')
