@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-# outfile = open('avgdata.csv', 'w')
+outfile = open('avgdata.csv', 'w')
 
 w = 10
 h = 10
@@ -23,9 +23,6 @@ def plotEverything():
     plt.ylabel('Mass Shown on Balance/-g')
     plt.show()
 
-# plotEverything()
-
-# outfile.close()
 
 def mean(L):
     return sum(L) / len(L)
@@ -46,12 +43,13 @@ while j <= 120:
 for i in range(len(angles_ordered)):
     angles_ordered[i] = int(mean(angles_ordered[i]))
     n_masses_ordered[i] = round(mean(n_masses_ordered[i]), 1)
+    outfile.write(str(angles_ordered[i])+','+str(n_masses_ordered[i]))
+    outfile.write('\n')
 
-print(angles_ordered)
-print(n_masses_ordered)
+# plt.plot(angles_ordered, n_masses_ordered, 'o')
+# plt.title('Plot of Averaged Data')
+# plt.xlabel('Angle of Attack/°')
+# plt.ylabel('Mass Shown on Balance/-g')
+# plt.show()
 
-plt.plot(angles_ordered, n_masses_ordered, 'o')
-plt.title('Plot of Averaged Data')
-plt.xlabel('Angle of Attack/°')
-plt.ylabel('Mass Shown on Balance/-g')
-plt.show()
+outfile.close()
