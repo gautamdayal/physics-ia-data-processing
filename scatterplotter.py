@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-outfile = open('avgdata.csv', 'w')
+# outfile = open('avgdata.csv', 'w')
 
 w = 10
 h = 10
@@ -15,7 +15,7 @@ def plotEverything():
     i, j = 0, 15
     while j <= 120:
         # change to markerfacecolor[colours[i//15]] if want different colours
-        plt.plot(data["Angle"][i:j], data["Neg_Mass"][i:j], 'o', markerfacecolor=colours[i//15], markeredgecolor='black')
+        plt.plot(data["Angle"][i:j], data["Neg_Mass"][i:j], 'o', markerfacecolor='black', markeredgecolor='black')
         i += 15
         j += 15
     plt.title('Plot of My Raw Data')
@@ -23,6 +23,7 @@ def plotEverything():
     plt.ylabel('Mass Shown on Balance/-g')
     plt.show()
 
+plotEverything()
 
 def mean(L):
     return sum(L) / len(L)
@@ -43,8 +44,8 @@ while j <= 120:
 for i in range(len(angles_ordered)):
     angles_ordered[i] = int(mean(angles_ordered[i]))
     n_masses_ordered[i] = round(mean(n_masses_ordered[i]), 1)
-    outfile.write(str(angles_ordered[i])+','+str(n_masses_ordered[i]))
-    outfile.write('\n')
+    # outfile.write(str(angles_ordered[i])+','+str(n_masses_ordered[i]))
+    # outfile.write('\n')
 
 # plt.plot(angles_ordered, n_masses_ordered, 'o')
 # plt.title('Plot of Averaged Data')
@@ -52,4 +53,4 @@ for i in range(len(angles_ordered)):
 # plt.ylabel('Mass Shown on Balance/-g')
 # plt.show()
 
-outfile.close()
+# outfile.close()
